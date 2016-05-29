@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>PingPong</title>
+    <style>
+        @font-face {
+            font-family: 'squarefontregular';
+            src: url('assets/pong/fonts/Square-webfont.eot');
+            src: url('assets/pong/fonts/Square-webfont.eot?#iefix') format('embedded-opentype'),
+            url('assets/pong/fonts/Square-webfont.woff2') format('woff2'),
+            url('assets/pong/fonts/Square-webfont.woff') format('woff'),
+            url('assets/pong/fonts/Square-webfont.ttf') format('truetype'),
+            url('assets/pong/fonts/Square-webfont.svg#squarefontregular') format('svg');
+            font-weight: normal;
+            font-style: normal;
+
+        }
+        .main {position: relative;}
+        .main canvas {background-color: black;}
+        .main .gate {background: url("assets/pong/images/gate.png") no-repeat center 30px;width: 650px;height: 488px;position: absolute;left: 0;top: 0;}
+        .main .gate.en {background-image: url("assets/pong/images/gate_en.png");}
+        .main .startBtn {position: absolute;left: 245px;top: 340px;background: url(assets/pong/images/start_btn.png) no-repeat;width: 160px;height: 48px;overflow: hidden;cursor: pointer;display: none;z-index: 10;}
+        .main .startBtn:hover {background-position-y: -48px;}
+        .main .scanline {position: absolute;left: 0;top: 0;z-index: 5;background-image: url(assets/galaga/images/scanline5.png);width: 100%;height: 100%;}
+    </style>
+    <script type="text/javascript" src="lib/jquery-1.11.2.min.js"></script>
+    <script type="text/javascript" src="lib/soundjs-0.6.0.min.js"></script>
+    <script type="text/javascript" src="src/common.js"></script>
+    <script type="text/javascript" src="src/pong/pong.js"></script>
+</head>
+
+<body style="">
+
+
+<div class="main">
+    <canvas id="canvas" style="" width="650" height="488"></canvas>
+    <div class="gate">
+        <div class="scanline"></div>
+        <a href="javascript:void(0);" class="startBtn"></a>
+    </div>
+</div>
+
+<script type="text/javascript">
+
+    var $gate = $('.gate');
+    var $startBtn = $('.startBtn');
+
+    if(getURLParameter('n') == 'en'){
+        $gate.addClass('en');
+    }
+
+    $(document).ready(function(){
+
+        $startBtn.show();
+        $startBtn.click(function(){
+            $gate.hide();
+            mlPingPong.ball();
+        });
+    });
+</script>
+
+</body>
+</html>
