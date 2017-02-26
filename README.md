@@ -1,6 +1,6 @@
 # project
 
-##넥슨
+###넥슨
 - 갤라가: http://suminc7.github.io/project/1501_nexon/galaga.html
 
 - 퐁: http://suminc7.github.io/project/1501_nexon/pong.html
